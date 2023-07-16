@@ -51,7 +51,8 @@ li {
   font-weight: bold;
 }
 .celsius,
-.fahrenheit {
+.fahrenheit,
+.github-link {
   text-decoration: none;
 }
 
@@ -73,4 +74,16 @@ form {
   position: relative;
   left: 80px;
   margin-top: 10px;
+}
+.footer {
+  font-family: "Courier New", Courier, monospace;
+  color: #fffdfb;
+  margin-top: 10px;
+  text-align: center;
+}
+.github-link {
+  color: aliceblue;
+}
+.github-link:hover {
+  font-weight: bold;
 }
