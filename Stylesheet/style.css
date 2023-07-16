@@ -1,0 +1,76 @@
+body {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/089/734/original/mountains.jpg?1689289431);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+h1 {
+  color: #1f6f78;
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.Weather-app {
+  margin: auto;
+  width: 700px;
+  border: 2px solid #1f6f78;
+  padding: 15px;
+  border-radius: 25px;
+  background-color: #fffdfb;
+  margin-top: 10%;
+}
+
+.temp-hour {
+  width: 650px;
+  height: 75px;
+  border: 1px solid #3baea0;
+  border-radius: 25px;
+}
+.forecast {
+  border: 1px solid #3baea0;
+  border-radius: 25px;
+  line-height: 45px;
+  margin-top: 20px;
+}
+.tempWeek {
+  border: 1px solid #3baea0;
+}
+.temperature {
+  font-size: 50px;
+  position: relative;
+  bottom: -10px;
+}
+.units {
+  position: relative;
+  top: -10px;
+  left: -10px;
+
+  font-weight: bold;
+}
+.celsius,
+.fahrenheit {
+  text-decoration: none;
+}
+
+.temp-description {
+  padding-left: 0;
+}
+.hour {
+  text-align: center;
+}
+.forecast-heading {
+  position: relative;
+  left: 30px;
+}
+form {
+  position: relative;
+  left: 60px;
+}
+.current-city {
+  position: relative;
+  left: 80px;
+  margin-top: 10px;
+}
