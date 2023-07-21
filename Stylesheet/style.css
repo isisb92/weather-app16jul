@@ -20,7 +20,7 @@ li {
   padding: 15px;
   border-radius: 25px;
   background-color: #fffdfb;
-  margin-top: 10%;
+  margin-top: 9%;
 }
 
 .temp-hour {
@@ -72,7 +72,7 @@ form {
 }
 .current-city {
   position: relative;
-  left: 80px;
+  text-align: center;
   margin-top: 10px;
 }
 .footer {
@@ -86,4 +86,17 @@ form {
 }
 .github-link:hover {
   font-weight: bold;
+}
+.current-temp {
+  text-align: center;
+  margin-top: -20px;
+}
+
+.section2 {
+  margin-bottom: 15px;
+  margin-top: -5px;
+}
+
+.wind-humidity {
+  margin-left: 60px;
 }

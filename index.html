@@ -37,26 +37,31 @@
           </div>
         </form>
         <div class="current-city">
-          <div class="row">
-            <div class="col-5">
-              <h1 id="result-city">Tegucigalpa</h1>
-              <ul class="temp-description">
-                <li id="weatherCurrentDate">Date</li>
-
-                <li id="current-weather-description">
-                  <em> Weather description </em>
-                </li>
-              </ul>
+          <h1 id="result-city">Tegucigalpa</h1>
+          <ul class="temp-description">
+            <li id="date">Date</li>
+            <li id="current-weather-description">
+              <em> Weather description </em>
+            </li>
+          </ul>
+        </div>
+        <div class="row section2">
+          <div class="col-6">
+            <div class="current-temp">
+              <img id="icon" src="Media/sun.png" alt="sun" width="70px" />
+              <span class="temperature" id="currentTemp"> </span>
+              <span class="units">
+                <a href="#" class="celsius" id="c-unit"> °C </a> |
+                <a href="#" class="fahrenheit" id="f-unit"> °F </a>
+              </span>
             </div>
-            <div class="col-5">
-              <div class="current-temp">
-                <img src="Media/sun.png" alt="sun" width="70px" />
-                <span class="temperature" id="currentTemp"> 00 </span>
-                <span class="units">
-                  <a href="#" class="celsius" id="c-unit"> °C </a> |
-                  <a href="#" class="fahrenheit" id="f-unit"> °F </a>
-                </span>
-              </div>
+          </div>
+          <div class="col-6">
+            <div class="wind-humidity">
+              <ul>
+                <li>Humidity: <span id="humidity"> </span>%</li>
+                <li>Windspeed: <span id="wind"> </span> km/h</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -157,7 +162,10 @@
     </div>
     <div>
       <p class="footer">
-        <a href="https://github.com/isisb92/weather-app16jul" class="github-link">
+        <a
+          href="https://github.com/isisb92/weather-app16jul"
+          class="github-link"
+        >
           Open source code
         </a>
         by Isis Buezo 🦖
