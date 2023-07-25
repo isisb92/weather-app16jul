@@ -36,9 +36,7 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${days[dayIndex]} ${
-    months[monthIndex]
-  } ${now.getDate()}, ${now.getFullYear()} ${hours}:${minutes}`;
+  return `${dayIndex} ${monthIndex} ${now.getDate()}, ${now.getFullYear()} ${hours}:${minutes}`;
 }
 
 function showTemp(response) {
@@ -85,3 +83,20 @@ let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Tegucigalpa");
+
+function searchLocation() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+  function showPosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let units = "metric";
+    let apiKey = "5aac6d0188c6f17d6d2bbe6591b6fef0";
+    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+    let apiUrl = `${apiEndpoint}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(showTemp);
+  }
+}
+
+let myPlaceButton = document.querySelector("current-place");
+myPlaceButton.addEventListener("click", searchLocation);
+console.log(myPlaceButton);
