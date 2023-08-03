@@ -51,7 +51,7 @@
               <img id="icon" src="Media/sun.png" alt="sun" width="70px" />
               <span class="temperature" id="currentTemp"> </span>
               <span class="units">
-                <a href="#" class="celsius" id="c-unit"> °C </a> |
+                <a href="#" class="celsius active" id="c-unit"> °C </a> |
                 <a href="#" class="fahrenheit" id="f-unit"> °F </a>
               </span>
             </div>
@@ -65,99 +65,8 @@
             </div>
           </div>
         </div>
-        <div class="temp-hour">
-          <div class="row">
-            <div class="col">
-              <ul class="hour">
-                <li>1PM</li>
-                <li><img src="Media/sun.png" alt="sun" width="20px" /></li>
-                <li>30°C</li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul class="hour">
-                <li>2PM</li>
-                <li>
-                  <img src="Media/cloudy.png" alt="sun" width="20px" />
-                </li>
-                <li>30°C</li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul class="hour">
-                <li>3PM</li>
-                <li><img src="Media/sun.png" alt="sun" width="20px" /></li>
-                <li>30°C</li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul class="hour">
-                <li>4PM</li>
-                <li>
-                  <img src="Media/cloudy.png" alt="sun" width="20px" />
-                </li>
-                <li>30°C</li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul class="hour">
-                <li>5PM</li>
-                <li><img src="Media/sun.png" alt="sun" width="20px" /></li>
-                <li>30°C</li>
-              </ul>
-            </div>
-            <div class="col">
-              <ul class="hour">
-                <li>6PM</li>
-                <li>
-                  <img src="Media/cloudy.png" alt="sun" width="20px" />
-                </li>
-                <li>30°C</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="forecast">
-          <div class="forecast-heading">
-            <div class="row">
-              <div class="col-6">📅 5-day forecast</div>
-              <div class="col-6">
-                <span>°C | <a href="#" class="fahrenheit"> °F </a></span>
-              </div>
-            </div>
-          </div>
-          <div class="forecast-values">
-            <div class="row">
-              <div class="col-3">
-                <ul class="days">
-                  <li>TUE</li>
-                  <li>WED</li>
-                  <li>THU</li>
-                  <li>FRI</li>
-                  <li>SAT</li>
-                </ul>
-              </div>
-              <div class="col-3">
-                <ul class="icons">
-                  <li><img src="Media/sun.png" alt="sun" width="20px" /></li>
-                  <li><img src="Media/cloudy.png" alt="sun" width="20px" /></li>
-                  <li><img src="Media/sun.png" alt="sun" width="20px" /></li>
-                  <li><img src="Media/cloudy.png" alt="sun" width="20px" /></li>
-                  <li><img src="Media/sun.png" alt="sun" width="20px" /></li>
-                </ul>
-              </div>
-              <div class="col-3">
-                <ul class="forecast-temp">
-                  <li>15°C | 30°C</li>
-                  <li>15°C | 30°C</li>
-                  <li>15°C | 30°C</li>
-                  <li>15°C | 30°C</li>
-                  <li>15°C | 30°C</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="weather-hour-forecast" id="hour-forecast"></div>
+        <div class="forecast" id="forecast"></div>
       </div>
     </div>
     <div>

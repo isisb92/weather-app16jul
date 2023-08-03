@@ -39,6 +39,36 @@ function formatDate(timestamp) {
   return `${dayIndex} ${monthIndex} ${now.getDate()}, ${now.getFullYear()} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> 18° </span>
+          <span class="weather-forecast-temperature-min"> 12° </span>
+        </div>
+      </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function showTemp(response) {
   let tempElement = document.querySelector("#currentTemp");
   let cityElement = document.querySelector("#result-city");
@@ -79,24 +109,34 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#currentTemp");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempElement = document.querySelector("#currentTemp");
+  tempElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSubmit);
 
+let fahrenheitLink = document.querySelector("#f-unit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#c-unit");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
 search("Tegucigalpa");
-
-function searchLocation() {
-  navigator.geolocation.getCurrentPosition(showPosition);
-  function showPosition(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let units = "metric";
-    let apiKey = "5aac6d0188c6f17d6d2bbe6591b6fef0";
-    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
-    let apiUrl = `${apiEndpoint}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(showTemp);
-  }
-}
-
-let myPlaceButton = document.querySelector("current-place");
-myPlaceButton.addEventListener("click", searchLocation);
-console.log(myPlaceButton);
+displayForecast();

@@ -45,15 +45,17 @@ li {
 }
 .units {
   position: relative;
-  top: -10px;
-  left: -10px;
-
+  top: -15px;
+  left: 1px;
   font-weight: bold;
+  color: #1f6f78;
+  text-decoration: none;
 }
 .celsius,
 .fahrenheit,
 .github-link {
   text-decoration: none;
+  
 }
 
 .temp-description {
@@ -99,4 +101,13 @@ form {
 
 .wind-humidity {
   margin-left: 60px;
+}
+
+.temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.temperature .active:hover {
+  text-decoration: none;
 }
