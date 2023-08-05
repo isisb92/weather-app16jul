@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let now = new Date(timestamp);
+  let now = new Date(timestamp * 1000);
 
   let days = [
     "Sunday",
@@ -36,7 +36,7 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${dayIndex} ${monthIndex} ${now.getDate()}, ${now.getFullYear()} ${hours}:${minutes}`;
+  return `${dayIndex}, ${monthIndex} ${now.getDate()}, ${now.getFullYear()} ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {
@@ -57,14 +57,14 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-      <div class="col-2">
+      <div class="col-2 daily-forecast" >
         <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
         <img
           src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
             forecastDay.condition.icon
           }.png"
           alt=""
-          width="42"
+          width="60"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
@@ -91,6 +91,7 @@ function getForecast(coordinates) {
 }
 
 function showTemp(response) {
+  console.log(response);
   let tempElement = document.querySelector("#currentTemp");
   let cityElement = document.querySelector("#result-city");
   let descriptionElement = document.querySelector(
@@ -108,7 +109,7 @@ function showTemp(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
-  dateElement.innerHTML = formatDate(response.data.time * 1000);
+  dateElement.innerHTML = formatDate(response.data.time);
   iconElement.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
@@ -116,6 +117,17 @@ function showTemp(response) {
   iconElement.setAttribute("alt", response.data.condition.icon);
 
   getForecast(response.data.coordinates);
+}
+function showCurrentCity() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+  function showPosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let units = "metric";
+    let apiKey = "8347db1ca3b38e46f3cca5o408t75e50";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(showTemp);
+  }
 }
 
 function search(city) {
@@ -135,5 +147,8 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSubmit);
+
+let myPlace = document.querySelector("#current-place");
+myPlace.addEventListener("click", showCurrentCity);
 
 search("Tegucigalpa");
