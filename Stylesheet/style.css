@@ -47,11 +47,6 @@ li {
   color: #1f6f78;
   text-decoration: none;
 }
-.celsius,
-.fahrenheit,
-.github-link {
-  text-decoration: none;
-}
 
 .temp-description {
   padding-left: 0;
@@ -75,10 +70,13 @@ form {
   margin-top: 10px;
   text-align: center;
 }
-.github-link {
+.github-link,
+.ig-link {
   color: aliceblue;
+  text-decoration: none;
 }
-.github-link:hover {
+.github-link:hover,
+.ig-link:hover {
   font-weight: bold;
 }
 .current-temp {
@@ -106,4 +104,13 @@ form {
 
 .weather-forecast-temperature-max {
   font-weight: bold;
+}
+.weather-forecast-date {
+  font-style: italic;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+
+.date {
+  font-style: oblique;
 }

@@ -103,6 +103,7 @@ function showTemp(response) {
   let iconElement = document.querySelector("#icon");
 
   let celsiusTemperature = response.data.temperature.current;
+  console.log(response.data.temperature.current);
 
   tempElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.city;
@@ -125,8 +126,9 @@ function showCurrentCity() {
     let lon = position.coords.longitude;
     let units = "metric";
     let apiKey = "8347db1ca3b38e46f3cca5o408t75e50";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showTemp);
+    console.log(apiUrl);
   }
 }
 
@@ -151,4 +153,4 @@ form.addEventListener("submit", handleSubmit);
 let myPlace = document.querySelector("#current-place");
 myPlace.addEventListener("click", showCurrentCity);
 
-search("Tegucigalpa");
+search("Paris");
