@@ -153,4 +153,4 @@ form.addEventListener("submit", handleSubmit);
 let myPlace = document.querySelector("#current-place");
 myPlace.addEventListener("click", showCurrentCity);
 
-search("Paris");
+search("Tegucigalpa");
